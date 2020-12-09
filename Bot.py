@@ -12,10 +12,7 @@ import discord.utils
 import random
 import datetime
 bot = commands.Bot(command_prefix="-z ")
-TOKEN = "NzQ3OTQwNjUyNjE1OTkxNDI3.X0WMAw.InKxa9OYN8CsAroS8YZnoEqk9jM"
 os.chdir("C:\\Users\\donki\\OneDrive\\Escritorio\\bot")
-alarm_time = '7:41'#24hrs
-channel_id = "671487552754024479"
 @bot.event
 async def on_ready(): 
 	await bot.change_presence(activity = discord.Game("-z "))
@@ -154,22 +151,6 @@ async def SiniYandere (ctx):
 @bot.command()
 async def Zakurapack(ctx):
 	await ctx.send(file=discord.File("pack.jpg"))
-@bot.command()
-async def perder(ctx):
-	if ctx.author.id == 265725029902319616:
-		with open("it.json","r") as f:
-			users = json.load(f)
-		users["Nada"]["cuenta"] = 1
-		with open("it.json", "w") as f:
-			json.dump(users,f)
-@bot.command()
-async def normal(ctx):
-	if ctx.author.id == 265725029902319616:
-		with open("it.json","r") as f:
-			users = json.load(f)
-		users["Nada"]["cuenta"] = 0
-		with open("it.json", "w") as f:
-			json.dump(users,f)
 @bot.command()
 async def Wiki (ctx):
 	await ctx.send("https://dragonballfanon.fandom.com/es/wiki/Dragon_Ball_Fanon_Wiki")
@@ -408,33 +389,6 @@ async def cuenta(ctx, member: discord.Member= None):
 	em.add_field(name = "cuenta", value = cuenta_amt)
 	await ctx.send(embed = em)
 @bot.command()
-async def Sello (ctx, arg, member : discord.Member):
-	sello = "Nada"
-	if ctx.author.id == 265725029902319616: sello = "Allez Studios"
-	elif ctx.author.id == 263108593178509313: sello = "Dragon News"
-	elif ctx.author.id == 721480105448177797 or ctx.author == 347201351543160834: sello = "Paint Express Z" 
-	elif ctx.author.id == 439829989274157057: sello = "Arcade Studios"
-	elif ctx.author.id == 498610422119923723: sello = "The Sparkling Key Studios"
-	else: await ctx.send ("No eres dueño de un sello")
-	if sello != "Nada":
-		usuario2 = member
-		await open_account(usuario2)
-		users = await get_bank_data()
-		earnings = int(arg)
-		if earnings > users[str(sello)]["cuenta"]:
-			await ctx.send("Invalido")
-		else:
-			if earnings > 0:
-				await ctx.send("Transación completada")
-				users[str(sello)]["cuenta"] -= earnings
-				with open("zen.json", "w") as f:
-					json.dump(users,f)
-				users[str(usuario2.id)]["cuenta"] += earnings
-				with open("zen.json", "w") as f:
-					json.dump(users,f)
-			else: 
-				await ctx.send("Invalido")
-@bot.command()
 async def Par (ctx, arg):
 	await open_account(ctx.author)
 	users = await get_bank_data()
@@ -588,7 +542,6 @@ async def give(ctx, arg, member : discord.Member, arg2 = None):
 					if todas[k] == Cart: cont3 = 2
 			if cont3 == 2: await ctx.send("No tienes esa carta")
 			elif cont3 == 0: await ctx.send("Esa carta no existe")
-			
 async def open_account(user):
 	users = await get_bank_data()
 	if str(user.id) in users: 
@@ -632,5 +585,5 @@ async def open_account1(user):
 async def get_bank_data1():
 	with open("rei.json","r") as f:
 		users = json.load(f)
-	return (users)    
-bot.run(TOKEN)
+	return (users)
+bot.run("NzQ3OTQwNjUyNjE1OTkxNDI3.X0WMAw.rthDj6cTzSoglJxQXSjrPvCy0fk")
