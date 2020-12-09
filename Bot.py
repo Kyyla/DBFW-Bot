@@ -586,4 +586,4 @@ async def get_bank_data1():
 	with open("rei.json","r") as f:
 		users = json.load(f)
 	return (users)
-bot.run("NzQ3OTQwNjUyNjE1OTkxNDI3.X0WMAw.rthDj6cTzSoglJxQXSjrPvCy0fk")
+bot.run("NzQ3OTQwNjUyNjE1OTkxNDI3.X0WMAw.zrjLI3Gq0sq_SdPzQxLSQuMDyDo")
