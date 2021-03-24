@@ -15,7 +15,7 @@ import datetime
 bot = commands.Bot(command_prefix="-z ", case_insensitive=True)
 bot.remove_command('HELP')
 bot.remove_command("help")
-os.chdir("C:\\Users\\donki\\Desktop\\bot")
+os.chdir(https://github.com/Kyyla/DBFW-Bot)
 @bot.event
 async def on_ready(): 
 	await bot.change_presence(activity = discord.Game("-z "))
